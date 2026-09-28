@@ -834,7 +834,9 @@ dialog{width:min(650px,calc(100% - 28px));max-height:88svh;padding:0;border:1px 
  .team-walk-heading p{max-width:31ch;margin-inline:auto;font-size:12px;line-height:1.4}
  .team-walk-preview .team-walk-stage,.team-walk-stage{inset:34% 0 0}
  .team-canvas-static{object-fit:cover;object-position:center bottom}
- .team-canvas-access{left:12px;right:12px;bottom:42px;overflow-x:auto;grid-template-columns:repeat(5,minmax(72px,1fr))}
+ .team-canvas-access{left:12px;right:12px;bottom:42px;overflow:hidden;grid-template-columns:repeat(5,minmax(0,1fr));scrollbar-width:none}
+ .team-canvas-access::-webkit-scrollbar{display:none}
+ .team-canvas-access button{min-width:0;padding-inline:2px;font-size:6px;letter-spacing:.035em}
 
  .manifesto-teaser{min-height:108svh;padding:0}
  .manifesto-composition{width:100%;max-width:none;height:96svh;aspect-ratio:auto}
