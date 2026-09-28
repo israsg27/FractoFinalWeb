@@ -37,11 +37,12 @@ function Header({path,navigate,onProject}:{path:string;navigate:Navigate;onProje
 
 export default function App(){
  const [path,navigate]=usePath();const start=(message?:string)=>openWhatsApp(message);
+ const iosSafe=/iPad|iPhone|iPod/.test(navigator.userAgent);
  useEffect(()=>{document.title=path==='/proyectos'?'Proyectos — FRACTO':path==='/servicios'?'Servicios — FRACTO':path==='/menu'?'Carta — FRACTO':path==='/equipo'||path==='/estudio'?'Equipo — FRACTO':'FRACTO — Consultora estratégica'},[path]);
  let page=<HomePage navigate={navigate} onProject={start}/>;
  if(path==='/proyectos')page=<ProjectsPage navigate={navigate} onProject={start}/>;
  if(path==='/servicios')page=<ServicesPage navigate={navigate} onProject={start}/>;
  if(path==='/menu')page=<MenuPage onProject={start}/>;
  if(path==='/equipo'||path==='/estudio')page=<TeamPage navigate={navigate} onProject={start}/>;
- return <><LoadingGate/><FractoCursor/><a className="skip" href="#main">Ir al contenido</a><ScrollProgress/><Header path={path} navigate={navigate} onProject={start}/><main id="main" tabIndex={-1} className="page-enter" key={path}>{page}</main><aside className="route-mark" aria-hidden="true"><span>{path==='/'?'00':path==='/proyectos'?'01':path==='/servicios'?'02':path==='/menu'?'03':'04'}</span><i/></aside></>;
+ return <>{!iosSafe&&<LoadingGate/>}{!iosSafe&&<FractoCursor/>}<a className="skip" href="#main">Ir al contenido</a><ScrollProgress/><Header path={path} navigate={navigate} onProject={start}/><main id="main" tabIndex={-1} className="page-enter" key={path}>{page}</main><aside className="route-mark" aria-hidden="true"><span>{path==='/'?'00':path==='/proyectos'?'01':path==='/servicios'?'02':path==='/menu'?'03':'04'}</span><i/></aside></>;
 }

@@ -145,9 +145,15 @@ dialog{width:min(650px,calc(100% - 28px));max-height:88svh;padding:0;border:1px 
 
 /* Mobile interaction audit: keep primary and team controls comfortably tappable. */
 .team-canvas-deferred{width:100%;height:100%}
+.team-canvas-static{width:100%;height:100%;object-fit:cover;object-position:center bottom;opacity:.92}
 .team-walk-link,.footer-brand{min-height:44px}
 .footer-brand{display:flex;align-items:flex-start}
 @media(max-width:820px){.team-canvas-access button{min-height:44px}.footer-bottom a{display:inline-flex;min-height:44px;align-items:center}}
+
+/* iOS and embedded WhatsApp browsers get a lighter, GPU-safe opening scene. */
+.ios-safe .glow-horizon-safe{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 38%,#eeeeea80 0,#8d8e8952 18%,#17181740 46%,transparent 70%);pointer-events:none}
+.ios-safe .home-title,.ios-safe .hero-copy,.ios-safe .hero-meta{transition:none}
+.ios-safe .page-enter{animation:none}
 .team-walker-2 img,.team-walker-4 img{animation-direction:reverse}
 .team-walker>em{top:0}.team-walker:hover>em,.team-walker:focus-visible>em{background:#f4f3ef;color:#111;box-shadow:0 10px 26px #0002}.team-walker:hover>em>i,.team-walker:focus-visible>em>i{background:#111;box-shadow:0 0 0 3px #1112}
 
