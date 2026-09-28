@@ -1,0 +1,7 @@
+{
+  "prompt": "Use case: stylized-concept\nAsset type: full-surface website background raster, landscape 1536x1024 PNG.\nPrimary request: A nearly black photographic print texture matching the quiet fine stippled ink grain around the perimeter of a premium black-and-white creative agency website. Base color near #0b0b0b. Thousands of tiny irregular charcoal and subdued gray speckles concentrated along the far left and far right perimeter and lightly along top and bottom, fading naturally into a calm almost solid black central region covering about 70% of the width. The grain must be fine, tactile and restrained like dark photographic print paper, with no identifiable pattern.\nComposition/framing: edge-to-edge flat texture only, central region black, sufficient dark contrast for white webpage text to be overlaid by code.\nConstraints: no text, no lettering, no logos, no objects, no eclipse, no circles, no halo, no vignette illustration, no interface, no frames, no gradients as a substitute for physical grain. Generate the texture as a standalone high-resolution asset, not a webpage screenshot.",
+  "generator": "built-in imagegen",
+  "kind": "generated material texture",
+  "width": 1536,
+  "height": 1024
+}

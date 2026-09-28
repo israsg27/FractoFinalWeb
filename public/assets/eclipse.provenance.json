@@ -1,0 +1,9 @@
+{
+  "prompt": "Create one original visual asset for FRACTO creative marketing agency, using reference image1 ONLY for its halftone eclipse, analog grain and black/white light language, and reference image2 ONLY for its photographic diffusion texture. NOT a website mockup. NO TEXT, letters, labels, diagram lines, stars, logo, animals or characters. Landscape 1536x1024 composition: deep neutral black (#080808), a large intensely luminous white annular eclipse in the right half centered x=66%, y=48%, a pitch-black circular core, the corona dissolving outwards into a dense regular print halftone dot field with gradually changing dot diameter. The bright edge has fine photographic grain, black dots on light corona, lighter dots fading into the black exterior. Slight optical distortion, imperfect analog screen-print impression, beautiful high-frequency tactile grain rather than smooth futuristic gradients. The LEFT THIRD must remain almost entirely dark negative space for live website copy; all outer edges fade seamlessly to pure black. Sophisticated experimental Swiss graphic design / 1990s music poster print technique, atmospheric and precise, powerful white glow but no colorful tint. No metal objects, no product photography, no 3D wireframes. This is an abstract print artwork, not a real astronomical photo.",
+  "tool": "image_gen built-in",
+  "referenceRole": "Style reference supplied by user; original abstract image, not a real client project.",
+  "references": [
+    "codex-clipboard-095e8c72-da46-4097-95d5-778585ceafbb.png",
+    "codex-clipboard-b380ce02-2f5c-4ea3-8455-e81d91e38784.png"
+  ]
+}

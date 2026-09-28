@@ -1,0 +1,10 @@
+node_modules/
+dist/
+*.tsbuildinfo
+.impeccable/review/
+.impeccable/
+tmp/
+reference-*.png
+.env
+.env.*
+!.env.example

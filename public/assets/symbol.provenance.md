@@ -1,0 +1,1 @@
+Official FRACTO symbol, copied unchanged from the user-provided project C:/Users/isras/Desktop/FRACTOWEB/public/brand/symbol.svg on 2026-09-09. Used as the spectral mask behind the editorial wordmark.
