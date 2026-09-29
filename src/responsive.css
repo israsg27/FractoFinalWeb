@@ -9,32 +9,47 @@
 @media(max-width:767px){
  .header{position:relative;top:auto}
  main>section{scroll-margin-top:0}
- .home-hero{min-height:100svh}
- .home-title{top:35%;width:calc(100% - 38px)}
- .home-title h1{font-size:clamp(44px,12.5vw,56px);line-height:.88;text-wrap:balance}
- .hero-eyebrow{margin-bottom:14px}
- .hero-actions{margin-top:26px}
- .hero-copy{bottom:4.5%;width:calc(100% - 48px);font-size:14px;line-height:1.4}
+ .home-hero{min-height:calc(100svh - 64px)}
+ .home-title{top:38%;width:calc(100% - 40px)}
+ .home-title h1{font-size:clamp(43px,12vw,55px);line-height:.88;text-wrap:balance}
+ .hero-eyebrow{margin-bottom:16px}
+ .hero-actions{grid-template-columns:1fr 1fr;margin-top:28px}
+ .hero-actions .button:first-child{grid-column:1/-1;justify-content:space-between}
+ .hero-actions .button:last-child{grid-column:auto;width:100%;justify-self:auto}
+ .hero-copy{bottom:4%;width:calc(100% - 48px);font-size:14px;line-height:1.45}
+ .home-hero .home-title,.home-hero .hero-copy,.bridge-statement h2,.bridge-statement>p,.solutions .section-heading,.difference p,.project-cloud-center,.team-walk-heading,.manifesto-teaser blockquote,.contact>div,.contact>.button{opacity:1!important;filter:none!important}
+
+ .solutions{padding-bottom:10vh}
+ .solution-list{display:grid;grid-template-columns:1fr 1fr;overflow:visible;border-top:1px solid #3a3c38}
+ .solution-list button{min-height:64px;width:100%;padding:10px 14px;border-right:1px solid #333530;border-bottom:1px solid #333530;grid-template-columns:25px 1fr 16px}
+ .solution-list button:nth-child(even){border-right:0}
+ .solution-list button:last-child{grid-column:1/-1;border-right:0}
+ .solution-list button small{display:none}
+ .solution-list button[aria-selected=true]{padding-left:18px}
+ .solution-display{min-height:0;padding:32px 20px 42px}
+ .solution-copy{padding:22px 0 28px}
+ .solution-display h3{font-size:clamp(50px,15vw,64px)}
  .project-cloud{padding-inline:0}
  .project-cloud-center{padding-inline:20px}
  .project-cloud-center h2{font-size:clamp(60px,18vw,78px);line-height:.82}
  .parallax-floating{display:grid;grid-auto-flow:row;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px 12px;overflow:visible;padding:0 20px 40px}
  .floating-element,.project-float:nth-child(even),.project-float:nth-child(odd){width:100%!important;scroll-snap-align:none}
  .project-float:nth-child(1),.project-float:nth-child(4),.project-float:nth-child(7){grid-column:1/-1}
+ .project-float:nth-child(n+5){display:none}
  .project-float-link img,.project-float-2 img,.project-float-3 img,.project-float-4 img,.project-float-5 img,.project-float-6 img,.project-float-7 img,.project-float-8 img,.project-float-9 img{aspect-ratio:.84}
  .project-float:nth-child(1) img,.project-float:nth-child(4) img,.project-float:nth-child(7) img{aspect-ratio:1.42}
  .project-float-link>div{display:block;min-height:68px;padding:11px 0 13px}
  .project-float-link h3{max-width:none;font-size:18px;line-height:1}
  .project-float-link p{margin-top:7px;font-size:9px;text-align:left}
  .project-float:nth-child(1) h3,.project-float:nth-child(4) h3,.project-float:nth-child(7) h3{font-size:28px}
- .project-cloud-foot{padding-inline:20px}
+ .project-cloud-foot{padding:28px 20px 0}
  .team-walk,.team-walk-preview{min-height:0;height:auto;padding:72px 0 0;overflow:hidden}
  .team-walk-heading{position:relative;inset:auto;left:auto;top:auto;width:calc(100% - 40px);margin:0 auto;translate:none;text-align:left;pointer-events:auto}
  .team-walk-heading>span{font-size:8px}
  .team-walk-heading h2{margin:17px 0 20px;font-size:clamp(42px,12vw,55px);line-height:.88}
  .team-walk-heading p{max-width:32ch;margin:0;font-size:14px;line-height:1.45}
  .team-walk-link{min-height:48px;margin-top:24px;padding:13px 16px}
- .team-walk-stage,.team-walk-preview .team-walk-stage{position:relative;inset:auto;width:100%;height:440px;margin-top:34px}
+ .team-walk-stage,.team-walk-preview .team-walk-stage{position:relative;inset:auto;width:100%;height:350px;margin-top:28px}
  .team-canvas-deferred,.team-canvas,.team-canvas-static{height:100%}
  .team-canvas-static{object-position:center bottom}
  .team-walk-stage .team-walk-profile{display:block;top:auto!important;right:20px;bottom:16px;left:20px!important;width:auto;max-width:none;translate:none;padding:18px 20px 20px}
@@ -43,6 +58,7 @@
  .team-canvas-access button{min-height:44px;padding:6px 2px;border-color:#d1d2cc;font-size:7px}
  .team-walk-hint{display:none}
  .team-mobile-roster{display:grid;background:#090a09;color:#f4f3ef}
+ .team-walk-preview .team-mobile-roster{display:none}
  .team-mobile-roster article{display:grid;grid-template-columns:38px 1fr;gap:12px;padding:27px 20px 29px;border-top:1px solid #333530}
  .team-mobile-roster article>span{padding-top:4px;color:#777a74;font-size:9px;font-variant-numeric:tabular-nums}
  .team-mobile-roster strong{display:block;font-size:11px;letter-spacing:.08em;text-transform:uppercase}
@@ -50,15 +66,17 @@
  .team-mobile-roster p{max-width:34ch;color:#bfc0ba;font-size:13px;line-height:1.48}
  .team-belief{min-height:0;padding-top:11vh;padding-bottom:12vh}
  .team-belief h2{margin-bottom:38px;font-size:clamp(47px,13vw,62px)}
- .manifesto-teaser,.ios-safe .manifesto-teaser{min-height:230svh;padding:0}
+ .manifesto-teaser,.ios-safe .manifesto-teaser{min-height:165svh;padding:0}
  .manifesto-composition,.ios-safe .manifesto-composition{position:sticky;top:0;width:100%;height:100svh;max-width:none}
- .manifesto-quote-mark{left:4%;top:10%;font-size:38cqw}
- .manifesto-teaser blockquote{left:10%;top:25%;width:80%;font-size:10.2cqw;line-height:.94}
- .manifesto-rule{left:9%;top:58svh;width:82%}
- .manifesto-axis{top:58svh;bottom:5svh}
- .manifesto-signature{bottom:4svh;font-size:10cqw}
+ .manifesto-quote-mark{left:4%;top:7%;font-size:34cqw}
+ .manifesto-teaser blockquote{left:9%;top:18%;width:82%;font-size:10cqw;line-height:.94}
+ .manifesto-rule{left:9%;top:50svh;width:82%}
+ .manifesto-axis{top:50svh;bottom:4svh}
+ .manifesto-signature{bottom:3svh;font-size:10cqw}
  .manifesto-teaser>.brand-gravity{z-index:2}
  .manifesto-teaser>.brand-gravity .brand-gravity-box{--brand-size:58px;--brand-height:100%;height:100%}
+ .manifesto-teaser .brand-gravity-box ul{opacity:0;transition:opacity .7s ease}
+ .manifesto-teaser .brand-gravity-box[data-ready=true] ul{opacity:1}
  .brand-static ul{bottom:6svh;width:calc(100% - 36px);grid-template-columns:repeat(2,1fr);gap:13px 20px}
  .brand-static li{min-height:45px}
  .brand-static img{max-width:92px;max-height:44px}
@@ -70,7 +88,7 @@
  .hero-actions{gap:6px}
  .hero-actions .button{padding-inline:10px;font-size:9px}
  .hero-copy{font-size:13px}
- .team-walk-stage,.team-walk-preview .team-walk-stage{height:430px}
+ .team-walk-stage,.team-walk-preview .team-walk-stage{height:330px}
  .manifesto-teaser blockquote{font-size:11.4cqw}
 }
 

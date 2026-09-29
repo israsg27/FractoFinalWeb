@@ -121,7 +121,7 @@ export default function GravityBrands(){
   }
 
   const nodes=Array.from(box.querySelectorAll<HTMLElement>('[data-brand-body]'));
-  let raf=0,last=performance.now(),accumulator=0,visible=false;
+  let raf=0,last=performance.now(),accumulator=0,visible=false,revealTimer=0;
   const frame=(now:number)=>{
    if(!visible)return;
    const elapsed=Math.min(50,now-last);last=now;accumulator+=elapsed;
@@ -134,7 +134,7 @@ export default function GravityBrands(){
    });
    raf=requestAnimationFrame(frame);
   };
-  const start=()=>{if(visible)return;visible=true;last=performance.now();raf=requestAnimationFrame(frame);if(!ceilingLocked&&!ceilingTimer)ceilingTimer=window.setTimeout(()=>{ceilingLocked=true;ceilingTimer=0;rebuildWalls()},4200)};
+  const start=()=>{if(visible)return;visible=true;last=performance.now();raf=requestAnimationFrame(frame);if(!revealTimer)revealTimer=window.setTimeout(()=>{box.dataset.ready='true';revealTimer=0},2400);if(!ceilingLocked&&!ceilingTimer)ceilingTimer=window.setTimeout(()=>{ceilingLocked=true;ceilingTimer=0;rebuildWalls()},4200)};
   const stop=()=>{visible=false;cancelAnimationFrame(raf)};
   const observer=new IntersectionObserver(([entry])=>entry.isIntersecting&&document.visibilityState==='visible'?start():stop(),{rootMargin:'120px 0px 85% 0px'});
   const onVisibility=()=>document.visibilityState==='visible'&&box.getBoundingClientRect().bottom>-120&&box.getBoundingClientRect().top<innerHeight+120?start():stop();
@@ -142,7 +142,7 @@ export default function GravityBrands(){
   observer.observe(box);resizeObserver.observe(box);document.addEventListener('visibilitychange',onVisibility);
 
   return()=>{
-   stop();observer.disconnect();resizeObserver.disconnect();document.removeEventListener('visibilitychange',onVisibility);teardownMouse();window.clearTimeout(ceilingTimer);
+   stop();observer.disconnect();resizeObserver.disconnect();document.removeEventListener('visibilitychange',onVisibility);teardownMouse();window.clearTimeout(ceilingTimer);window.clearTimeout(revealTimer);
    if(mouse)Mouse.clearSourceEvents(mouse);
    Composite.clear(engine.world,false);Engine.clear(engine);
   };
