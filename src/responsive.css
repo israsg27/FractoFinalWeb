@@ -7,16 +7,31 @@
 .brand-static img{display:block;max-width:112px;max-height:62px;filter:grayscale(1) brightness(0) invert(1);opacity:.82}
 
 @media(max-width:767px){
+ .header{position:relative;top:auto}
+ main>section{scroll-margin-top:0}
+ .project-cloud{padding-inline:0}
+ .project-cloud-center{padding-inline:20px}
+ .project-cloud-center h2{font-size:clamp(60px,18vw,78px);line-height:.82}
+ .parallax-floating{display:grid;grid-auto-flow:row;grid-template-columns:1fr;gap:54px;overflow:visible;padding:0 20px 40px}
+ .floating-element,.project-float:nth-child(even),.project-float:nth-child(odd){width:100%!important;scroll-snap-align:none}
+ .project-float-link img,.project-float-2 img,.project-float-3 img,.project-float-4 img,.project-float-5 img,.project-float-6 img,.project-float-7 img,.project-float-8 img,.project-float-9 img{aspect-ratio:1.18}
+ .project-float-link>div{min-height:0;padding:15px 0 18px}
+ .project-float-link h3{font-size:30px}
+ .project-cloud-foot{padding-inline:20px}
  .team-walk,.team-walk-preview{min-height:0;height:auto;padding:72px 0 0;overflow:hidden}
  .team-walk-heading{position:relative;inset:auto;left:auto;top:auto;width:calc(100% - 40px);margin:0 auto;translate:none;text-align:left;pointer-events:auto}
  .team-walk-heading>span{font-size:8px}
  .team-walk-heading h2{margin:17px 0 20px;font-size:clamp(42px,12vw,55px);line-height:.88}
  .team-walk-heading p{max-width:32ch;margin:0;font-size:14px;line-height:1.45}
  .team-walk-link{min-height:48px;margin-top:24px;padding:13px 16px}
- .team-walk-stage,.team-walk-preview .team-walk-stage{position:relative;inset:auto;width:100%;height:470px;margin-top:34px}
+ .team-walk-stage,.team-walk-preview .team-walk-stage{position:relative;inset:auto;width:100%;height:560px;margin-top:34px}
  .team-canvas-deferred,.team-canvas,.team-canvas-static{height:100%}
  .team-canvas-static{object-position:center bottom}
- .team-walk-stage .team-walk-profile,.team-canvas-access,.team-walk-hint{display:none}
+ .team-walk-stage .team-walk-profile{display:block;top:auto!important;right:20px;bottom:16px;left:20px!important;width:auto;max-width:none;translate:none;padding:18px 20px 20px}
+ .team-walk-stage .team-walk-profile h3{font-size:28px}
+ .team-canvas-access{position:relative;inset:auto;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:4px;margin:-1px 12px 22px}
+ .team-canvas-access button{min-height:44px;padding:6px 2px;border-color:#d1d2cc;font-size:7px}
+ .team-walk-hint{display:none}
  .team-mobile-roster{display:grid;background:#090a09;color:#f4f3ef}
  .team-mobile-roster article{display:grid;grid-template-columns:38px 1fr;gap:12px;padding:27px 20px 29px;border-top:1px solid #333530}
  .team-mobile-roster article>span{padding-top:4px;color:#777a74;font-size:9px;font-variant-numeric:tabular-nums}
