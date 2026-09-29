@@ -236,6 +236,7 @@ dialog{width:min(650px,calc(100% - 28px));max-height:88svh;padding:0;border:1px 
  .footer-main>p{order:2}
  .footer nav{order:3;width:100%}
 }
+
 .team-walker-2 img,.team-walker-4 img{animation-direction:reverse}
 .team-walker>em{top:0}.team-walker:hover>em,.team-walker:focus-visible>em{background:#f4f3ef;color:#111;box-shadow:0 10px 26px #0002}.team-walker:hover>em>i,.team-walker:focus-visible>em>i{background:#111;box-shadow:0 0 0 3px #1112}
 

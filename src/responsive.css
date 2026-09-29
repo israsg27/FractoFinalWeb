@@ -1,0 +1,48 @@
+/* Final cross-platform responsive layer. Loaded after the legacy visual system. */
+.team-mobile-roster{display:none}
+.team-walk-stage .team-walk-profile{top:clamp(300px,var(--focus-y,320px),calc(100% - 28px));width:min(340px,calc(100vw - 48px));padding:18px 20px 20px}
+.brand-static{position:absolute;z-index:2;inset:0;pointer-events:none}
+.brand-static ul{position:absolute;left:50%;bottom:7svh;width:min(760px,84vw);translate:-50% 0;display:grid;grid-template-columns:repeat(4,1fr);gap:26px 34px;margin:0;padding:0;list-style:none}
+.brand-static li{display:grid;place-items:center;min-height:72px}
+.brand-static img{display:block;max-width:112px;max-height:62px;filter:grayscale(1) brightness(0) invert(1);opacity:.82}
+
+@media(max-width:767px){
+ .team-walk,.team-walk-preview{min-height:0;height:auto;padding:72px 0 0;overflow:hidden}
+ .team-walk-heading{position:relative;inset:auto;left:auto;top:auto;width:calc(100% - 40px);margin:0 auto;translate:none;text-align:left;pointer-events:auto}
+ .team-walk-heading>span{font-size:8px}
+ .team-walk-heading h2{margin:17px 0 20px;font-size:clamp(42px,12vw,55px);line-height:.88}
+ .team-walk-heading p{max-width:32ch;margin:0;font-size:14px;line-height:1.45}
+ .team-walk-link{min-height:48px;margin-top:24px;padding:13px 16px}
+ .team-walk-stage,.team-walk-preview .team-walk-stage{position:relative;inset:auto;width:100%;height:470px;margin-top:34px}
+ .team-canvas-deferred,.team-canvas,.team-canvas-static{height:100%}
+ .team-canvas-static{object-position:center bottom}
+ .team-walk-stage .team-walk-profile,.team-canvas-access,.team-walk-hint{display:none}
+ .team-mobile-roster{display:grid;background:#090a09;color:#f4f3ef}
+ .team-mobile-roster article{display:grid;grid-template-columns:38px 1fr;gap:12px;padding:27px 20px 29px;border-top:1px solid #333530}
+ .team-mobile-roster article>span{padding-top:4px;color:#777a74;font-size:9px;font-variant-numeric:tabular-nums}
+ .team-mobile-roster strong{display:block;font-size:11px;letter-spacing:.08em;text-transform:uppercase}
+ .team-mobile-roster h3{margin:9px 0 12px;font-family:Affinik,Archivo,Arial,sans-serif;font-size:31px;font-weight:400;line-height:.94;letter-spacing:-.025em}
+ .team-mobile-roster p{max-width:34ch;color:#bfc0ba;font-size:13px;line-height:1.48}
+ .team-belief{min-height:0;padding-top:11vh;padding-bottom:12vh}
+ .team-belief h2{margin-bottom:38px;font-size:clamp(47px,13vw,62px)}
+ .brand-static ul{bottom:6svh;width:calc(100% - 36px);grid-template-columns:repeat(2,1fr);gap:13px 20px}
+ .brand-static li{min-height:45px}
+ .brand-static img{max-width:92px;max-height:44px}
+}
+
+@media(max-width:360px){
+ .home-title{top:31%;width:calc(100% - 28px)}
+ .home-title h1{font-size:46px}
+ .hero-actions{gap:6px}
+ .hero-actions .button{padding-inline:10px;font-size:9px}
+ .hero-copy{font-size:13px}
+ .team-walk-stage,.team-walk-preview .team-walk-stage{height:430px}
+ .manifesto-teaser blockquote{font-size:11.4cqw}
+}
+
+@media(min-width:768px) and (max-width:1100px){
+ .team-walk-heading{width:min(620px,72vw)}
+ .team-walk-heading h2{font-size:clamp(52px,6.8vw,70px)}
+ .team-walk-preview .team-walk-stage{inset:30% 0 0}
+ .team-walk-stage .team-walk-profile{top:clamp(270px,var(--focus-y,300px),calc(100% - 24px));width:min(320px,34vw)}
+}
