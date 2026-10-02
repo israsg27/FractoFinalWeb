@@ -36,6 +36,8 @@ const RIPPLE_STEPS=[
 
 export default function GlowHorizonFM({className,variant="top"}:GlowHorizonProps){
  const {axis,scaleAxis,enterPct,restPct}=VARIANTS[variant];
+ const compact=matchMedia('(max-width: 820px), (pointer: coarse)').matches;
+ const particles=compact?PARTICLES.filter((_,index)=>index%3===0):PARTICLES;
  const root=useRef<HTMLDivElement>(null);
  const ripples=useRef<HTMLDivElement>(null);
  const reduced=useReducedMotion();
@@ -55,10 +57,9 @@ export default function GlowHorizonFM({className,variant="top"}:GlowHorizonProps
   const inside=(event:MouseEvent|PointerEvent)=>{const bounds=root.current?.getBoundingClientRect();return !!bounds&&event.clientX>=bounds.left&&event.clientX<=bounds.right&&event.clientY>=bounds.top&&event.clientY<=bounds.bottom};
   const move=(event:PointerEvent)=>{if(reduced)return;if(!inside(event)){reset();return}const bounds=root.current!.getBoundingClientRect();const nx=(event.clientX-bounds.left)/bounds.width-.5,ny=(event.clientY-bounds.top)/bounds.height-.5;pointerX.set(nx*72);pointerY.set(ny*44);hero?.style.setProperty("--hero-title-x",`${nx*-44}px`);hero?.style.setProperty("--hero-title-y",`${ny*-32}px`);hero?.style.setProperty("--hero-copy-x",`${nx*-24}px`);hero?.style.setProperty("--hero-copy-y",`${ny*-16}px`);hero?.style.setProperty("--hero-meta-x",`${nx*-12}px`);hero?.style.setProperty("--hero-meta-y",`${ny*-8}px`)};
   const pulse=(event:MouseEvent)=>{if(!inside(event))return;Array.from(ripples.current?.children??[]).forEach((line,index)=>{line.getAnimations().forEach(animation=>animation.cancel());line.animate([{filter:"brightness(1) blur(.15px)"},{filter:`brightness(${reduced?1.5:1.8}) blur(.15px)`,offset:.34},{filter:"brightness(1) blur(.15px)"}],{duration:reduced?220:570+index*60,delay:reduced?0:index*55,easing:"cubic-bezier(.16,1,.3,1)"})})};
-  window.addEventListener("pointermove",move,{passive:true});
-  window.addEventListener("click",pulse,{passive:true});
+  if(!compact){window.addEventListener("pointermove",move,{passive:true});window.addEventListener("click",pulse,{passive:true})}
   return()=>{window.removeEventListener("pointermove",move);window.removeEventListener("click",pulse);reset()};
- },[pointerX,pointerY,reduced]);
+ },[pointerX,pointerY,reduced,compact]);
  return <div ref={root} className={`glow-horizon-shell ${className??""}`} aria-hidden="true">
   <motion.div className="glow-horizon-scroll" style={{y:scrollDepth}}>
    <motion.div className="glow-horizon-parallax" style={{x:arcX,y:arcY}}>
@@ -71,7 +72,7 @@ export default function GlowHorizonFM({className,variant="top"}:GlowHorizonProps
    </motion.div>
    <motion.div ref={ripples} className="glow-horizon-ripples" style={{x:arcX,y:arcY}}>{RIPPLE_STEPS.map((_,index)=><span key={index}/>)}</motion.div>
    <motion.span className="glow-horizon-halftone" style={{x:textureX,y:textureY}}/>
-   <motion.div className="glow-horizon-particles" style={{x:particleX,y:particleY}}>{PARTICLES.map((particle,index)=><motion.span key={index} style={{left:particle.left,top:particle.top,width:particle.size,height:particle.size}} initial={false} animate={!reduced&&visible?{x:[0,particle.drift,0],y:[0,-particle.rise,-particle.rise-5],opacity:[0,.94,.5,0],scale:[.5,1.35,1,.65]}:{opacity:.2}} transition={!reduced&&visible?{duration:particle.duration,delay:particle.delay,repeat:Infinity,ease:"easeInOut"}:{duration:.2}}/>)}</motion.div>
+   <motion.div className="glow-horizon-particles" style={{x:particleX,y:particleY}}>{particles.map((particle,index)=><motion.span key={index} style={{left:particle.left,top:particle.top,width:particle.size,height:particle.size}} initial={false} animate={!reduced&&visible?{x:[0,particle.drift,0],y:[0,-particle.rise,-particle.rise-5],opacity:[0,.94,.5,0],scale:[.5,1.35,1,.65]}:{opacity:.2}} transition={!reduced&&visible?{duration:particle.duration,delay:particle.delay,repeat:Infinity,ease:"easeInOut"}:{duration:.2}}/>)}</motion.div>
   </motion.div>
   <span className="glow-parallax-hint">Mover para desplazar</span>
   <span className="glow-horizon-grain"/>

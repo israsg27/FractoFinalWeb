@@ -1,4 +1,4 @@
-import {useEffect,useRef} from 'react';
+import {useEffect,useRef,useState} from 'react';
 import type {CSSProperties} from 'react';
 import Matter from 'matter-js';
 import {useReducedMotion} from 'framer-motion';
@@ -37,10 +37,13 @@ export default function GravityBrands(){
  const boxRef=useRef<HTMLDivElement>(null);
  const sectionRef=useRef<HTMLDivElement>(null);
  const reduced=useReducedMotion();
+ const [staticMode,setStaticMode]=useState(()=>matchMedia('(max-width: 820px), (pointer: coarse)').matches);
+
+ useEffect(()=>{const media=matchMedia('(max-width: 820px), (pointer: coarse)');const update=()=>setStaticMode(media.matches);media.addEventListener('change',update);return()=>media.removeEventListener('change',update)},[]);
 
  useEffect(()=>{
   const box=boxRef.current;
-  if(!box||reduced)return;
+  if(!box||reduced||staticMode)return;
 
   const {Engine,Bodies,Body,Composite,Mouse,MouseConstraint}=Matter;
   const engine=Engine.create({gravity:{x:0,y:.92}});
@@ -146,12 +149,12 @@ export default function GravityBrands(){
    if(mouse)Mouse.clearSourceEvents(mouse);
    Composite.clear(engine.world,false);Engine.clear(engine);
   };
- },[reduced]);
+ },[reduced,staticMode]);
 
  const activateGlow=(color?:string)=>sectionRef.current?.style.setProperty('--brand-glow',color||'#f4f3ee');
 
  return <div ref={sectionRef} className="brand-gravity" aria-label="Logotipos de marcas con las que hemos trabajado">
-  <div ref={boxRef} className="brand-gravity-box" data-cursor="drag" data-reduced={reduced||undefined} onDragStart={event=>event.preventDefault()}>
+  <div ref={boxRef} className="brand-gravity-box" data-cursor={staticMode?undefined:'drag'} data-reduced={reduced||undefined} data-static={staticMode||undefined} onDragStart={event=>event.preventDefault()}>
    <div className="brand-gravity-light" aria-hidden="true"/>
    <div className="brand-gravity-rings" aria-hidden="true">
     <span/>
@@ -160,7 +163,7 @@ export default function GravityBrands(){
     {Array.from({length:24},(_,index)=><i key={index} style={{'--particle-x':`${4+(index*37)%93}%`,'--particle-y':`${18+(index*29)%68}%`,'--particle-size':`${index%5===0?2.4:index%3===0?1.7:1}px`,'--particle-delay':`${-(index%8)*.63}s`,'--particle-duration':`${5.8+(index%6)*.72}s`} as CSSProperties}/>) }
    </div>
    <ul>
-    {DISPLAY_BRANDS.map((brand,index)=><li key={`${brand.name}-${index}`} data-brand-body onPointerEnter={()=>activateGlow(brand.ink)} onPointerLeave={()=>activateGlow()} style={{'--brand-ink':brand.ink||'#f4f3ee'} as CSSProperties}>
+    {(staticMode?BRANDS:DISPLAY_BRANDS).map((brand,index)=><li key={`${brand.name}-${index}`} data-brand-body onPointerEnter={()=>activateGlow(brand.ink)} onPointerLeave={()=>activateGlow()} style={{'--brand-ink':brand.ink||'#f4f3ee'} as CSSProperties}>
      {brand.colorLogo&&<span className="brand-gravity-color" style={{'--brand-src':`url(${brand.colorLogo})`} as CSSProperties}/>} 
      <span className="brand-gravity-logo" style={{'--brand-src':`url(${brand.logo})`} as CSSProperties}/>
      <span className="sr-only">{brand.name}</span>

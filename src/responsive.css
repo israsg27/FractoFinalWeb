@@ -1,10 +1,17 @@
 /* Final cross-platform responsive layer. Loaded after the legacy visual system. */
+.carta-dish-cta{min-height:44px;padding-block:10px}
+.portfolio-work-head button{min-height:44px;padding-block:10px}
 .team-mobile-roster{display:none}
 .team-walk-stage .team-walk-profile{top:clamp(300px,var(--focus-y,320px),calc(100% - 28px));width:min(340px,calc(100vw - 48px));padding:18px 20px 20px}
 .brand-static{position:absolute;z-index:2;inset:0;pointer-events:none}
 .brand-static ul{position:absolute;left:50%;bottom:7svh;width:min(760px,84vw);translate:-50% 0;display:grid;grid-template-columns:repeat(4,1fr);gap:26px 34px;margin:0;padding:0;list-style:none}
 .brand-static li{display:grid;place-items:center;min-height:72px}
 .brand-static img{display:block;max-width:112px;max-height:62px;filter:grayscale(1) brightness(0) invert(1);opacity:.82}
+.manifesto-teaser>.brand-gravity .brand-gravity-box[data-static]{overflow:visible;touch-action:pan-y;cursor:auto}
+.manifesto-teaser>.brand-gravity .brand-gravity-box[data-static] ul{position:absolute;left:50%;bottom:6svh;translate:-50% 0;display:grid;width:min(680px,84vw);height:auto;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px 20px;opacity:1}
+.manifesto-teaser>.brand-gravity .brand-gravity-box[data-static] li{position:relative;left:auto;top:auto;display:block;visibility:visible;width:100%;height:64px;filter:none;transform:none!important;will-change:auto}
+.manifesto-teaser>.brand-gravity .brand-gravity-box[data-static] .brand-gravity-logo{inset:8px 12px;opacity:.72}
+.manifesto-teaser>.brand-gravity .brand-gravity-box[data-static] .brand-gravity-color,.manifesto-teaser>.brand-gravity .brand-gravity-box[data-static] .brand-gravity-rings,.manifesto-teaser>.brand-gravity .brand-gravity-box[data-static] .brand-gravity-particles{display:none}
 
 @media(max-width:767px){
  .header{position:relative;top:auto}
@@ -18,6 +25,7 @@
  .hero-actions .button:last-child{grid-column:auto;width:100%;justify-self:auto}
  .hero-copy{bottom:4%;width:calc(100% - 48px);font-size:14px;line-height:1.45}
  .home-hero .home-title,.home-hero .hero-copy,.bridge-statement h2,.bridge-statement>p,.solutions .section-heading,.difference p,.project-cloud-center,.team-walk-heading,.manifesto-teaser blockquote,.contact>div,.contact>.button{opacity:1!important;filter:none!important}
+ .contact>.button{transform:none!important}
 
  .solutions{padding-bottom:10vh}
  .solution-list{display:grid;grid-template-columns:1fr 1fr;overflow:visible;border-top:1px solid #3a3c38}
@@ -40,22 +48,23 @@
  .project-float:nth-child(1) img,.project-float:nth-child(4) img,.project-float:nth-child(7) img{aspect-ratio:1.42}
  .project-float-link>div{display:block;min-height:68px;padding:11px 0 13px}
  .project-float-link h3{max-width:none;font-size:18px;line-height:1}
- .project-float-link p{margin-top:7px;font-size:9px;text-align:left}
+ .project-float-link p{margin-top:7px;font-size:11px;text-align:left}
  .project-float:nth-child(1) h3,.project-float:nth-child(4) h3,.project-float:nth-child(7) h3{font-size:28px}
  .project-cloud-foot{padding:28px 20px 0}
  .team-walk,.team-walk-preview{min-height:0;height:auto;padding:72px 0 0;overflow:hidden}
  .team-walk-heading{position:relative;inset:auto;left:auto;top:auto;width:calc(100% - 40px);margin:0 auto;translate:none;text-align:left;pointer-events:auto}
- .team-walk-heading>span{font-size:8px}
+ .team-walk-heading>span{font-size:10px}
  .team-walk-heading h2{margin:17px 0 20px;font-size:clamp(42px,12vw,55px);line-height:.88}
  .team-walk-heading p{max-width:32ch;margin:0;font-size:14px;line-height:1.45}
  .team-walk-link{min-height:48px;margin-top:24px;padding:13px 16px}
- .team-walk-stage,.team-walk-preview .team-walk-stage{position:relative;inset:auto;width:100%;height:350px;margin-top:28px}
+ .team-walk-stage,.team-walk-preview .team-walk-stage{position:relative;inset:auto;width:100%;height:300px;margin-top:12px}
+ .team-walk-preview .team-walk-stage{height:220px}
  .team-canvas-deferred,.team-canvas,.team-canvas-static{height:100%}
  .team-canvas-static{object-position:center bottom}
  .team-walk-stage .team-walk-profile{display:block;top:auto!important;right:20px;bottom:16px;left:20px!important;width:auto;max-width:none;translate:none;padding:18px 20px 20px}
  .team-walk-stage .team-walk-profile h3{font-size:28px}
  .team-canvas-access{position:relative;inset:auto;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:4px;margin:-1px 12px 22px}
- .team-canvas-access button{min-height:44px;padding:6px 2px;border-color:#d1d2cc;font-size:7px}
+ .team-canvas-access button{min-height:44px;padding:6px 2px;border-color:#d1d2cc;font-size:10px}
  .team-walk-hint{display:none}
  .team-mobile-roster{display:grid;background:#090a09;color:#f4f3ef}
  .team-walk-preview .team-mobile-roster{display:none}
@@ -75,26 +84,53 @@
  .manifesto-signature{bottom:3svh;font-size:10cqw}
  .manifesto-teaser>.brand-gravity{z-index:2}
  .manifesto-teaser>.brand-gravity .brand-gravity-box{--brand-size:58px;--brand-height:100%;height:100%}
+ .manifesto-teaser>.brand-gravity .brand-gravity-box[data-static]{overflow:visible;touch-action:pan-y;cursor:auto}
+ .manifesto-teaser>.brand-gravity .brand-gravity-box[data-static] ul{position:absolute;left:50%;bottom:5svh;translate:-50% 0;display:grid;width:calc(100% - 36px);height:auto;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px 12px;opacity:1}
+ .manifesto-teaser>.brand-gravity .brand-gravity-box[data-static] li{position:relative;left:auto;top:auto;display:block;visibility:visible;width:100%;height:48px;filter:none;transform:none!important;will-change:auto}
+ .manifesto-teaser>.brand-gravity .brand-gravity-box[data-static] .brand-gravity-logo{inset:5px 10px;opacity:.72}
+ .manifesto-teaser>.brand-gravity .brand-gravity-box[data-static] .brand-gravity-color{display:none}
+ .manifesto-teaser>.brand-gravity .brand-gravity-box[data-static] .brand-gravity-rings,.manifesto-teaser>.brand-gravity .brand-gravity-box[data-static] .brand-gravity-particles{display:none}
  .manifesto-teaser .brand-gravity-box ul{opacity:0;transition:opacity .7s ease}
  .manifesto-teaser .brand-gravity-box[data-ready=true] ul{opacity:1}
+ .manifesto-teaser .brand-gravity-box[data-static] ul{opacity:1}
  .brand-static ul{bottom:6svh;width:calc(100% - 36px);grid-template-columns:repeat(2,1fr);gap:13px 20px}
  .brand-static li{min-height:45px}
  .brand-static img{max-width:92px;max-height:44px}
+ .carta-dish-cta{min-height:44px;padding:10px 0;margin-top:16px;font-size:13px}
 }
 
 @media(max-width:360px){
  .home-title{top:31%;width:calc(100% - 28px)}
  .home-title h1{font-size:46px}
  .hero-actions{gap:6px}
- .hero-actions .button{padding-inline:10px;font-size:9px}
+ .hero-actions .button{padding-inline:10px;font-size:10px}
  .hero-copy{font-size:13px}
- .team-walk-stage,.team-walk-preview .team-walk-stage{height:330px}
+ .team-walk-stage{height:285px}
+ .team-walk-preview .team-walk-stage{height:210px}
+ .team-belief h2{font-size:42px}
+ .process h2,.contact h2{font-size:43px}
  .manifesto-teaser blockquote{font-size:11.4cqw}
 }
 
 @media(min-width:768px) and (max-width:1100px){
+ .manifesto-signature{display:none}
+ .project-cloud{min-height:0;padding:88px 24px 72px}
+ .project-cloud-stage{min-height:0;display:block;overflow:visible}
+ .project-cloud-center{position:relative;inset:auto;left:auto;top:auto;translate:none;width:min(640px,100%);margin:0 0 56px;text-align:left}
+ .project-cloud-center h2{font-size:clamp(76px,11vw,120px)}
+ .project-cloud-center p{margin:0 0 28px}
+ .parallax-floating{position:relative;inset:auto;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:32px 22px;overflow:visible}
+ .floating-element,.project-float:nth-child(even),.project-float:nth-child(odd){position:relative!important;inset:auto!important;align-self:start;width:100%!important;transform:none!important}
+ .project-float-link img,.project-float-2 img,.project-float-3 img,.project-float-4 img,.project-float-5 img,.project-float-6 img,.project-float-7 img,.project-float-8 img{aspect-ratio:1.18}
+ .project-float-link>div{opacity:1;transform:none}
+ .project-float-link h3{font-size:clamp(23px,3vw,34px);max-width:none}
+ .project-cloud-foot{position:relative;inset:auto;display:flex;justify-content:space-between;width:100%;padding:48px 0 0;transform:none}
  .team-walk-heading{width:min(620px,72vw)}
  .team-walk-heading h2{font-size:clamp(52px,6.8vw,70px)}
  .team-walk-preview .team-walk-stage{inset:30% 0 0}
  .team-walk-stage .team-walk-profile{top:clamp(270px,var(--focus-y,300px),calc(100% - 24px));width:min(320px,34vw)}
+}
+
+@media(min-width:821px){
+ .header-contact,.team-canvas-access button,.footer-bottom a{min-height:44px}
 }
